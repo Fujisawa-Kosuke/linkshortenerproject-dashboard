@@ -69,6 +69,10 @@ These are non-negotiable, enforced project-wide. Each links to the full instruct
    user's rows — see the pattern in `data/links.ts`.
 6. **Validate any stored/user-supplied URL before redirecting to it** (scheme allow-list
    of `http:`/`https:` only) — see [`docs/link-redirection.md`](./docs/link-redirection.md).
+7. **NEVER use `middleware.ts`.** The `middleware` file convention is deprecated in newer
+   Next.js versions, including the one used in this project (Next.js 16). Use
+   [`proxy.ts`](./proxy.ts) (project root) instead — it already runs `clerkMiddleware()`.
+   Add any request-interception logic there; never create a `middleware.ts` file.
 
 ## Coding Style Quick Reference
 
